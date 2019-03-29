@@ -56,11 +56,16 @@ def ReturnResult(MatchMap,image_t,image_i,threshold):
         print("Target found ",counter," times")
         image_found = np.zeros((40, 245, 3), np.uint8)
         font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(image_found, "target found", (5, 30), font, 1, (0, 255, 0), 2)
+        cv2.putText(image_found, "TARGET FOUND", (5, 30), font, 1, (0, 255, 0), 2)
         cv2.imshow("Result", image_found)
 
     else:
+        cv2.imshow("input image", image_i)
         print("Target not-found")
+        image_found = np.zeros((40, 335, 3), np.uint8)
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(image_found, "TARGET NOT FOUND", (5, 30), font, 1, (0, 255, 255), 2)
+        cv2.imshow("Result", image_found)
 
 
 if __name__=="__main__":
